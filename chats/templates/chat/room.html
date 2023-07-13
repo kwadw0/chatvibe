@@ -1,15 +1,16 @@
+{% extends "chat/_base.html" %}
+{% load compress %}
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+{% block content %}
+<h1 class="text-3xl text-blue-700">Chat</h1>
     <textarea id="chat-log" cols="100" rows="20"></textarea><br>
-    <input id="chat-message-input" type="text" size="100"><br>
-    <input id="chat-message-submit" type="button" value="Send">
+    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/5 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2" id="chat-message-input" type="text" size="100"><br>
+    <button class="bg-violet-500 hover:bg-violet-300 text-white font-bold py-2 px-6 rounded" id="chat-message-submit" type="submit" >send</button>
     {{ room_name|json_script:"room-name" }}
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
@@ -47,5 +48,4 @@
             messageInputDom.value = '';
         };
     </script>
-</body>
-</html>
+{% endblock content %}

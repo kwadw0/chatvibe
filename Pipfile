@@ -8,6 +8,7 @@ django = "*"
 channels = "*"
 daphne = "*"
 channels-redis = "*"
+django-compressor = "*"
 
 [dev-packages]
 
